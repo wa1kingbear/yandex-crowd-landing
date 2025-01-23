@@ -1,3 +1,8 @@
+@use "./normalize.css";
+@use "./colors";
+@use "./fonts";
+
 body {
-    background-color: #fff;
+    background-color: var(--white);
+    color: var(--white);
 }
