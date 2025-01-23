@@ -12,10 +12,6 @@ module.exports = {
             filename: "style.css",
         }),
     ],
-    devServer: {
-        watchFiles: path.join(__dirname, "src"),
-        port: 9000,
-    },
     module: {
         rules: [
             {
