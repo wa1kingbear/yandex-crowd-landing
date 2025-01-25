@@ -1,0 +1,22 @@
+header {
+    width: 100%;
+    padding: 26px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    .logo {
+        display: block;
+        width: 245px;
+        transition: opacity 0.2s ease;
+        @media (hover: hover) {
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+}

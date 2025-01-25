@@ -7,6 +7,7 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/index.js":
@@ -15,8 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sass_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sass/main.scss */ \"./src/sass/main.scss\");\n/* harmony import */ var _scripts_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/index.js */ \"./src/scripts/index.js\");\n/* harmony import */ var _scripts_index_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_scripts_index_js__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\n//# sourceURL=webpack://yandex-crowd-landing/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sass_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sass/main.scss */ \"./src/sass/main.scss\");\n/* harmony import */ var _scripts_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/index.js */ \"./src/scripts/index.js\");\n\n\n\n//# sourceURL=webpack://yandex-crowd-landing/./src/index.js?");
 
 /***/ }),
 
@@ -24,9 +24,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sas
 /*!******************************!*\
   !*** ./src/scripts/index.js ***!
   \******************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("document.addEventListener(\"DOMContentLoaded\", () => {\n  console.log(\"Work!\");\n});\n\n//# sourceURL=webpack://yandex-crowd-landing/./src/scripts/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _running_line__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./running-line */ \"./src/scripts/running-line.js\");\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  (0,_running_line__WEBPACK_IMPORTED_MODULE_0__.runningLine)();\n});\n\n//# sourceURL=webpack://yandex-crowd-landing/./src/scripts/index.js?");
+
+/***/ }),
+
+/***/ "./src/scripts/running-line.js":
+/*!*************************************!*\
+  !*** ./src/scripts/running-line.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   runningLine: () => (/* binding */ runningLine)\n/* harmony export */ });\nconst runningLine = () => {\n  const runningLine = document.querySelector(\".running-line__text\");\n  const lineContainer = document.querySelector(\".running-line\");\n\n  // Дублируем текст для бесшовности\n  const clone = runningLine.innerHTML;\n  runningLine.innerHTML += clone;\n  let speed = 50; // Скорость движения (меньше значение — быстрее)\n  let offset = 0;\n  function animate() {\n    offset -= 1; // Сдвиг влево\n    if (Math.abs(offset) >= runningLine.offsetWidth / 2) {\n      offset = 0; // Сбрасываем, чтобы текст был бесшовным\n    }\n    runningLine.style.transform = `translateX(${offset}px)`;\n    requestAnimationFrame(animate); // Плавная анимация\n  }\n  animate();\n};\n\n//# sourceURL=webpack://yandex-crowd-landing/./src/scripts/running-line.js?");
 
 /***/ }),
 
@@ -36,7 +46,6 @@ eval("document.addEventListener(\"DOMContentLoaded\", () => {\n  console.log(\"W
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://yandex-crowd-landing/./src/sass/main.scss?");
 
 /***/ })
@@ -68,18 +77,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports

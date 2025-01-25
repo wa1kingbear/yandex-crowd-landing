@@ -1,3 +1,5 @@
+import { runningLine } from "./running-line";
+
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Work!");
+    runningLine();
 });

@@ -1,0 +1,111 @@
+.heading {
+    height: 700px;
+    background-color: var(--brown-light);
+    position: relative;
+    .container {
+        padding: 124px 0;
+        position: relative;
+        z-index: 10;
+    }
+}
+.heading__content {
+    max-width: 542px;
+}
+.heading__title {
+    font-weight: 400;
+    font-family: var(--font1);
+    font-size: 60px;
+    line-height: 66px;
+    text-transform: uppercase;
+    span {
+        display: block;
+        &:nth-child(2) {
+            text-align: center;
+        }
+    }
+}
+.heading__description {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+    margin-top: 24px;
+}
+.heading__buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 24px;
+}
+.heading__background {
+    height: 100%;
+    width: 100%;
+    background-color: var(--brown-light);
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    &:before {
+        height: 100%;
+        width: 100%;
+        background-image: url("../assets/images/texture.png");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        content: "";
+        mix-blend-mode: color-burn;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+    }
+}
+.heading__background__circle {
+    display: block;
+    width: 660px;
+    position: absolute;
+    top: -45px;
+    right: 0;
+    z-index: 1;
+}
+.heading__background__city {
+    display: block;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+}
+.heading__background__chess-1 {
+    display: block;
+    width: 131px;
+    position: absolute;
+    top: 270px;
+    right: 506px;
+    z-index: 1;
+}
+.heading__background__chess-2 {
+    display: block;
+    width: 146px;
+    position: absolute;
+    top: 165px;
+    right: 159px;
+    z-index: 1;
+}
+.heading__background__chess-3 {
+    display: block;
+    width: 197px;
+    position: absolute;
+    right: 334px;
+    bottom: -9px;
+    z-index: 5;
+}
+.heading__background__chess-4 {
+    display: block;
+    width: 84px;
+    position: absolute;
+    right: 45px;
+    bottom: 20px;
+    z-index: 5;
+}

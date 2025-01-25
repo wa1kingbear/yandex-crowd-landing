@@ -1,9 +1,8 @@
-@use "./normalize.css";
-@use "./vars";
-@use "./colors";
-@use "./fonts";
-
-@use "./sections";
+@use "./base/base";
+@use "./utils/utils";
+@use "./layout/layout";
+@use "./components/components";
+@use "./pages/pages";
 
 body {
     background-color: var(--white);
