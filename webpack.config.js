@@ -6,6 +6,7 @@ module.exports = {
     output: {
         filename: "main.js",
         path: path.resolve(__dirname, "./build"),
+        publicPath: "/",
     },
     plugins: [
         new MiniCssExtractPlugin({
@@ -23,11 +24,26 @@ module.exports = {
                 test: /\.(scss|css)$/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    "css-loader",
+                    {
+                        loader: "css-loader",
+                        options: {
+                            url: false,
+                        },
+                    },
                     "postcss-loader",
                     "sass-loader",
                 ],
             },
+            {
+                test: /\.(png|jpe?g|gif|svg|webp|woff2?|eot|ttf|otf)$/,
+                type: "assets",
+                generator: {
+                    filename: "assets/[hash][ext][query]",
+                },
+            },
         ],
+    },
+    resolve: {
+        extensions: [".js", ".json"],
     },
 };

@@ -1,0 +1,23 @@
+.about__content__image {
+    width: 530px;
+    position: relative;
+    &:before {
+        display: block;
+        height: 100%;
+        width: 100%;
+        background-image: url("../assets/images/about-texture.png");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        content: "";
+        mix-blend-mode: color-burn;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    img {
+        display: block;
+        width: 100%;
+    }
+}

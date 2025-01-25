@@ -1,6 +1,6 @@
-/*!*******************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/main.scss ***!
-  \*******************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/main.scss ***!
+  \***********************************************************************************************************************************************************************************/
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -186,6 +186,11 @@ template {
 }
 
 :root {
+  --font1: "Merriweather", serif;
+  --font2: "Golos Text", sans-serif;
+}
+
+:root {
   --white: #fff;
   --red: #f54932;
   --grey: #595653;
@@ -194,7 +199,69 @@ template {
   --black: #313131;
 }
 
+@font-face {
+  font-family: "Merriweather";
+  src: url("../assets/fonts/Merriweather/Merriweather-Regular.woff2") format("woff2"), url("../assets/fonts/Merriweather/Merriweather-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Merriweather";
+  src: url("../assets/fonts/Merriweather/Merriweather-Bold.woff2") format("woff2"), url("../assets/fonts/Merriweather/Merriweather-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Golos Text";
+  src: url("../assets/fonts/GolosText/GolosText-Regular.ttf") format("woff2"), url("../assets/fonts/GolosText/GolosText-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Golos Text";
+  src: url("../assets/fonts/GolosText/GolosText-Medium.ttf") format("woff2"), url("../assets/fonts/GolosText/GolosText-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Golos Text";
+  src: url("../assets/fonts/GolosText/GolosText-GolosText-SemiBold.ttf") format("woff2"), url("../assets/fonts/GolosText/GolosText-GolosText-SemiBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
+}
+.about__content__image {
+  width: 530px;
+  position: relative;
+}
+.about__content__image:before {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-image: url("../assets/images/about-texture.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  content: "";
+  mix-blend-mode: color-burn;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.about__content__image img {
+  display: block;
+  width: 100%;
+}
+
 body {
   background-color: var(--white);
-  color: var(--white);
+  font-family: var(--font2);
+  color: var(--black);
+}
+
+.container {
+  width: 1222px;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
