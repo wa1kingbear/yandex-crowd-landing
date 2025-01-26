@@ -1,0 +1,137 @@
+.stages {
+    margin-top: 200px;
+}
+.stages__title {
+    max-width: 800px;
+    h2 {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+}
+.stages__title__1 {
+    width: 100%;
+}
+.stages__title__2 {
+    margin-right: 25px;
+}
+.stages__title__3 {
+    flex: 1;
+    max-width: 280px;
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--blue);
+}
+.stages__content {
+    margin-top: 54px;
+}
+.stages__slider {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.stages__slider__slide {
+    &.col-2 {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        .stages__card {
+            flex: 1;
+        }
+    }
+    &:nth-child(1) {
+        grid-column: span 2;
+    }
+    &:nth-child(2) {
+        grid-row: span 2;
+    }
+    &:nth-child(3) {
+        grid-column: span 2;
+    }
+    &:nth-child(5) {
+        grid-column: span 2;
+    }
+    &:nth-child(1) {
+        grid-column: span 2;
+    }
+    &:nth-child(2) {
+        grid-row: span 2;
+    }
+    &:nth-child(3) {
+        grid-column: span 2;
+    }
+    &:nth-child(5) {
+        grid-column: span 2;
+    }
+    .stages__card {
+        min-height: 100%;
+    }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Три столбца одинаковой ширины */
+    grid-template-rows: repeat(3, 1fr); /* Три строки одинаковой высоты */
+    gap: 20px; /* Расстояние между карточками */
+    width: 100%;
+    height: 100vh; /* Занимаем всю высоту экрана */
+    // background-color: black;
+}
+
+.card {
+    background-color: blue;
+    color: var(--white);
+    align-items: center;
+    justify-content: center;
+    &.col-2 {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+    &:nth-child(1) {
+        grid-column: span 2;
+    }
+    &:nth-child(2) {
+        grid-row: span 2;
+    }
+    &:nth-child(3) {
+        grid-column: span 2;
+    }
+    &:nth-child(5) {
+        grid-column: span 2;
+    }
+}
+
+// .card-3 {
+//     grid-row: span 2;
+// }
+// .card-7 {
+//     grid-column: span 2;
+// }
+
+/* Индивидуальная разметка для карточек */
+// .card-1 {
+//     grid-column: span 2; /* Растягивается на 2 столбца */
+//     grid-row: span 2; /* Растягивается на 2 строки */
+// }
+
+// .card-2 {
+//     grid-column: 3 / 4; /* Занимает 3-й столбец */
+//     grid-row: 1 / 2; /* Занимает первую строку */
+// }
+
+// .card-3 {
+//     grid-column: 1 / 2; /* Занимает 1-й столбец */
+//     grid-row: 3 / 4; /* Занимает 3-ю строку */
+// }
+
+// .card-4 {
+//     grid-column: 2 / 4; /* Занимает 2-й и 3-й столбцы */
+//     grid-row: 3 / 4; /* Занимает 3-ю строку */
+// }
+
+// .card-5 {
+//     grid-column: 1 / 4; /* Занимает все три столбца */
+//     grid-row: 2 / 3; /* Занимает 2-ю строку */
+// }

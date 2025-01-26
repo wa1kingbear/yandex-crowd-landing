@@ -1,0 +1,43 @@
+.stages__card {
+    display: flex;
+    background-color: var(--brown-light);
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 20px 21px 20px;
+    box-sizing: border-box;
+    position: relative;
+    &:before {
+        height: 100%;
+        width: 100%;
+        background-image: url("../assets/images/texture.png");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        content: "";
+        mix-blend-mode: color-burn;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+}
+.stages__card__num {
+    display: flex;
+    height: 36px;
+    width: 36px;
+    background-color: var(--white);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 36px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    border-radius: 50%;
+}
+.stages__card__text {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    flex: 1;
+}

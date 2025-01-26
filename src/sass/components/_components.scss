@@ -1,8 +1,11 @@
 // shared
+@use "./shared/title";
 @use "./shared/button";
+@use "./shared/stages-card";
 
 // pages
 // home
 @use "./pages/home/heading";
-@use "./pages/home/about";
 @use "./pages/home/running-line";
+@use "./pages/home/about";
+@use "./pages/home/stages";
