@@ -1,5 +1,30 @@
+.about {
+    margin-top: 80px;
+}
+.about__heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.about__heading__title {
+    flex: 1;
+    margin-right: 64px;
+}
+.about__heading__image {
+    width: 394px;
+    img {
+        display: block;
+        width: 100%;
+    }
+}
+.about__content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 36px;
+}
 .about__content__image {
     width: 530px;
+    margin: 0 20px 0 -25px;
     position: relative;
     &:before {
         display: block;
@@ -19,5 +44,72 @@
     img {
         display: block;
         width: 100%;
+    }
+}
+.about__content__description {
+    margin-top: 30px;
+    flex: 1;
+}
+.about__content__description__characteristics {
+    margin-top: 60px;
+}
+.about__content__description__characteristics__item {
+    display: flex;
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--black);
+    flex-direction: row;
+    &:nth-child(1) {
+        div {
+            padding-top: 0;
+        }
+    }
+    &:last-child {
+        div {
+            padding-bottom: 0;
+        }
+    }
+    &:not(:nth-child(1)) {
+        border-top: 2px solid var(--light-grey);
+    }
+    div {
+        padding: 16px 0;
+        box-sizing: border-box;
+        &:nth-child(1) {
+            width: 305px;
+            padding-right: 16px;
+            border-right: 2px solid var(--light-grey);
+            span {
+                opacity: 0.7;
+            }
+        }
+        &:nth-child(2) {
+            font-weight: 600;
+            flex: 1;
+            padding-left: 16px;
+            em {
+                text-decoration: line-through;
+                text-decoration-color: var(--red);
+                position: relative;
+            }
+        }
+    }
+}
+.about__content__description__note {
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--blue);
+    margin-top: 48px;
+}
+
+.about-title {
+    font-family: var(--font1);
+    font-size: 36px;
+    line-height: 49px;
+    color: var(--black);
+    text-transform: uppercase;
+    em {
+        font-weight: 700;
+        color: var(--red);
     }
 }
