@@ -1,22 +1,24 @@
-export const runningLine = () => {
-    const runningLine = document.querySelector(".running-line__text");
-    const lineContainer = document.querySelector(".running-line");
+const initAnimation = (item) => {
+    const clone = item.innerHTML;
+    item.innerHTML += clone;
 
-    // Дублируем текст для бесшовности
-    const clone = runningLine.innerHTML;
-    runningLine.innerHTML += clone;
-
-    let speed = 50; // Скорость движения (меньше значение — быстрее)
     let offset = 0;
 
     function animate() {
-        offset -= 1; // Сдвиг влево
-        if (Math.abs(offset) >= runningLine.offsetWidth / 2) {
-            offset = 0; // Сбрасываем, чтобы текст был бесшовным
+        offset -= 1;
+        if (Math.abs(offset) >= item.offsetWidth / 2) {
+            offset = 0;
         }
-        runningLine.style.transform = `translateX(${offset}px)`;
-        requestAnimationFrame(animate); // Плавная анимация
+        item.style.transform = `translateX(${offset}px)`;
+        requestAnimationFrame(animate);
     }
 
     animate();
+};
+export const runningLine = () => {
+    const runningLine = document.querySelectorAll(".running-line__text");
+
+    runningLine.forEach((item) => {
+        initAnimation(item);
+    });
 };

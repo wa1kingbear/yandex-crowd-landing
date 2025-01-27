@@ -2,6 +2,7 @@
 @use "./shared/title";
 @use "./shared/button";
 @use "./shared/stages-card";
+@use "./shared/participants-card";
 
 // pages
 // home
@@ -9,3 +10,4 @@
 @use "./pages/home/running-line";
 @use "./pages/home/about";
 @use "./pages/home/stages";
+@use "./pages/home/participants";

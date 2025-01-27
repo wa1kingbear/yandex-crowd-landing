@@ -1,7 +1,6 @@
 /*!***********************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/main.scss ***!
   \***********************************************************************************************************************************************************************************/
-@charset "UTF-8";
 html,
 body,
 div,
@@ -193,6 +192,44 @@ table {
   --font2: "Golos Text", sans-serif;
 }
 
+.carousel {
+  width: 100%;
+  height: 100%;
+  -ms-touch-action: pan-y;
+      touch-action: pan-y;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  -webkit-transition: -webkit-transform 0.7s ease;
+  transition: -webkit-transform 0.7s ease;
+  transition: transform 0.7s ease;
+  transition: transform 0.7s ease, -webkit-transform 0.7s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.carousel-slide {
+  display: block;
+  height: 100%;
+  width: 100%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  position: relative;
+}
+
 header {
   width: 100%;
   padding: 26px 0;
@@ -217,6 +254,17 @@ header .logo img {
   width: 100%;
 }
 
+footer {
+  min-height: 150px;
+  background-color: var(--brown-light);
+  font-size: 16px;
+  line-height: 19px;
+  opacity: 0.6;
+  padding: 40px 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .title {
   font-family: var(--font1);
   font-size: 54px;
@@ -235,6 +283,7 @@ header .logo img {
   line-height: 21px;
   text-align: center;
   color: var(--white);
+  cursor: pointer;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -375,6 +424,58 @@ a.button {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+
+.participants-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.participants-card__photo {
+  height: 320px;
+  width: 320px;
+  background-image: url("../assets/images/participants-photo-empty.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.participants-card__about {
+  text-align: center;
+  margin-top: 28px;
+}
+
+.participants-card__about__name {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.participants-card__about__rank {
+  font-size: 20px;
+  line-height: 24px;
+  opacity: 0.6;
+  margin-top: 6px;
+}
+
+.participants-card__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20px;
 }
 
 .heading {
@@ -694,6 +795,9 @@ a.button {
 .stages {
   margin-top: 200px;
 }
+.stages .container {
+  position: relative;
+}
 
 .stages__title {
   max-width: 800px;
@@ -765,65 +869,33 @@ a.button {
 .stages__slider__slide:nth-child(5) {
   grid-column: span 2;
 }
-.stages__slider__slide:nth-child(1) {
-  grid-column: span 2;
-}
-.stages__slider__slide:nth-child(2) {
-  grid-row: span 2;
-}
-.stages__slider__slide:nth-child(3) {
-  grid-column: span 2;
-}
-.stages__slider__slide:nth-child(5) {
-  grid-column: span 2;
+.stages__slider__slide:nth-child(5) .stages__card__text {
+  max-width: 445px;
 }
 .stages__slider__slide .stages__card {
   min-height: 100%;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Три столбца одинаковой ширины */
-  grid-template-rows: repeat(3, 1fr); /* Три строки одинаковой высоты */
-  gap: 20px; /* Расстояние между карточками */
+.stages__image {
+  width: 376px;
+  position: absolute;
+  right: -62px;
+  bottom: 0;
+  z-index: 3;
+}
+.stages__image img {
+  display: block;
   width: 100%;
-  height: 100vh; /* Занимаем всю высоту экрана */
 }
 
-.card {
-  background-color: blue;
-  color: var(--white);
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.card.col-2 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  gap: 20px;
-}
-.card:nth-child(1) {
-  grid-column: span 2;
-}
-.card:nth-child(2) {
-  grid-row: span 2;
-}
-.card:nth-child(3) {
-  grid-column: span 2;
-}
-.card:nth-child(5) {
-  grid-column: span 2;
+.participants {
+  margin: 200px 0 140px 0;
 }
 
-/* Индивидуальная разметка для карточек */
+.participants__slider__wrapper {
+  margin-top: 60px;
+}
+
 body {
   background-color: var(--white);
   font-family: var(--font2);

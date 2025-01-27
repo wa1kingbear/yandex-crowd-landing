@@ -1,0 +1,35 @@
+.participants-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.participants-card__photo {
+    height: 320px;
+    width: 320px;
+    background-image: url("../assets/images/participants-photo-empty.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.participants-card__about {
+    text-align: center;
+    margin-top: 28px;
+}
+.participants-card__about__name {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+}
+.participants-card__about__rank {
+    font-size: 20px;
+    line-height: 24px;
+    opacity: 0.6;
+    margin-top: 6px;
+}
+.participants-card__button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Карусель на JS</title>
+        <style>
+            .carousel {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+            }
+            .carousel-track {
+                display: flex;
+                transition: transform 0.3s ease-in-out;
+            }
+            .carousel-slide {
+                /* min-width: 100%; */
+                width: calc(100% / 3);
+                box-sizing: border-box;
+            }
+            .carousel-buttons,
+            .carousel-pagination {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .carousel-prev {
+                left: 10px;
+            }
+            .carousel-next {
+                right: 10px;
+            }
+            .carousel-pagination {
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+            }
+            .carousel-pagination button {
+                width: 10px;
+                height: 10px;
+                margin: 0 5px;
+                border-radius: 50%;
+                background-color: gray;
+                border: none;
+                cursor: pointer;
+            }
+            .carousel-pagination button.active {
+                background-color: black;
+            }
+            .carousel-counter {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                background: rgba(0, 0, 0, 0.5);
+                color: white;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="carousel">
+            <div class="carousel-track">
+                <!-- Слайды -->
+                <div class="carousel-slide">Слайд 1</div>
+                <div class="carousel-slide">Слайд 2</div>
+                <div class="carousel-slide">Слайд 3</div>
+                <div class="carousel-slide">Слайд 4</div>
+            </div>
+
+            <!-- Кнопки управления -->
+            <button class="carousel-prev">Назад</button>
+            <button class="carousel-next">Далее</button>
+
+            <!-- Пагинация -->
+            <div class="carousel-pagination"></div>
+
+            <!-- Счетчик слайдов -->
+            <div class="carousel-counter">1 / 4</div>
+        </div>
+
+        <script>
+            class Carousel {
+                constructor(element, options = {}) {
+                    this.element = element;
+                    this.track = element.querySelector(".carousel-track");
+                    this.slides = Array.from(this.track.children);
+                    this.prevButton = element.querySelector(".carousel-prev");
+                    this.nextButton = element.querySelector(".carousel-next");
+                    this.pagination = element.querySelector(
+                        ".carousel-pagination"
+                    );
+                    this.counter = element.querySelector(".carousel-counter");
+
+                    this.totalSlides = this.slides.length;
+                    this.currentSlide = 0;
+                    this.slidesToShow = options.slidesToShow || 1;
+                    this.autoPlayInterval = options.autoPlayInterval || 3000;
+
+                    this.updateCounter();
+                    this.createPagination();
+                    this.updatePagination();
+
+                    this.prevButton.addEventListener("click", () =>
+                        this.prevSlide()
+                    );
+                    this.nextButton.addEventListener("click", () =>
+                        this.nextSlide()
+                    );
+
+                    window.addEventListener("resize", () =>
+                        this.updateSlidesToShow()
+                    );
+
+                    this.autoPlay = options.autoPlay || false;
+                    if (this.autoPlay) {
+                        this.startAutoPlay();
+                    }
+                }
+
+                updateSlidesToShow() {
+                    const width = window.innerWidth;
+                    if (width < 600) {
+                        this.slidesToShow = 1;
+                    } else if (width < 900) {
+                        this.slidesToShow = 2;
+                    } else {
+                        this.slidesToShow = 3;
+                    }
+                    this.updateCounter();
+                    this.updatePagination();
+                }
+
+                updateCounter() {
+                    this.counter.textContent = `${this.currentSlide + 1} / ${
+                        this.totalSlides
+                    }`;
+                }
+
+                createPagination() {
+                    this.pagination.innerHTML = "";
+                    for (let i = 0; i < this.totalSlides; i++) {
+                        const button = document.createElement("button");
+                        button.addEventListener("click", () =>
+                            this.goToSlide(i)
+                        );
+                        this.pagination.appendChild(button);
+                    }
+                }
+
+                updatePagination() {
+                    const buttons = this.pagination.querySelectorAll("button");
+                    buttons.forEach((button, index) => {
+                        button.classList.toggle(
+                            "active",
+                            index === this.currentSlide
+                        );
+                    });
+                }
+
+                nextSlide() {
+                    this.currentSlide =
+                        (this.currentSlide + 1) % this.totalSlides;
+                    this.updateCarousel();
+                }
+
+                prevSlide() {
+                    this.currentSlide =
+                        (this.currentSlide - 1 + this.totalSlides) %
+                        this.totalSlides;
+                    this.updateCarousel();
+                }
+
+                goToSlide(index) {
+                    this.currentSlide = index;
+                    this.updateCarousel();
+                }
+
+                updateCarousel() {
+                    const offset = -(
+                        this.currentSlide *
+                        (100 / this.slidesToShow)
+                    );
+                    this.track.style.transform = `translateX(${offset}%)`;
+                    this.updateCounter();
+                    this.updatePagination();
+                }
+
+                startAutoPlay() {
+                    setInterval(() => {
+                        this.nextSlide();
+                    }, this.autoPlayInterval);
+                }
+            }
+
+            // Инициализация карусели
+            const carousel = new Carousel(document.querySelector(".carousel"), {
+                slidesToShow: 3,
+                // autoPlay: true,
+                autoPlayInterval: 3000,
+            });
+        </script>
+    </body>
+</html>
