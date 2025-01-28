@@ -2,7 +2,7 @@ import { Carousel } from "./carousel";
 
 export const participants = () => {
     new Carousel(".participants__slider__wrapper", {
-        slidesPerView: 1,
+        slidesPerView: 3,
         autoPlay: true,
         autoPlaySpeed: 2000,
         navigation: {
