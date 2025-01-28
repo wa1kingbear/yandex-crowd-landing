@@ -5,6 +5,7 @@ export class Carousel {
         this.slides = this.container.querySelectorAll(".carousel-slide");
         this.totalSlides = this.slides.length;
         this.activeSlideCount = 1;
+        this.currentIndex = 0;
         this.options = {
             ...options,
             slidesPerView: options.slidesPerView || 1,
@@ -19,34 +20,71 @@ export class Carousel {
     }
 
     prevSlide() {
-        const offset = this.slideWidth * this.options.slidesPerView;
-        const count = this.activeSlideCount;
+        const slides = this.wrapper.querySelectorAll(".carousel-slide");
+        const offset = this.slideWidth;
 
         const style = window.getComputedStyle(this.wrapper);
-        const matrix = new WebKitCSSMatrix(style.transform);
+        let matrix = new WebKitCSSMatrix(style.transform);
 
-        if (this.activeSlideCount > 1) {
-            this.activeSlideCount = count - 1;
+        const firstSlide = this.wrapper.querySelector(".slide-first");
+        const firstSlidePrevSibling = firstSlide.previousElementSibling;
+
+        if (firstSlidePrevSibling) {
+            this.wrapper.style.transform = `translateX(${
+                matrix.m41 + offset
+            }px)`;
+        } else {
+            const lastSlide = slides[slides.length - 1];
+            const parent = slides[0].parentNode;
+
+            parent.insertBefore(lastSlide, parent.firstChild);
+
+            parent.style.transitionDuration = "0s";
+            this.wrapper.style.transform = `translateX(${
+                matrix.m41 - offset
+            }px)`;
+
+            matrix = new WebKitCSSMatrix(style.transform);
+            parent.style.transitionDuration = null;
             this.wrapper.style.transform = `translateX(${
                 matrix.m41 + offset
             }px)`;
         }
+        this.updateActiveSlides("prev");
     }
 
     nextSlide() {
-        const offset = this.slideWidth * this.options.slidesPerView;
-        const count = this.activeSlideCount;
-        const maxCount = this.totalSlides / this.options.slidesPerView;
+        const slides = this.wrapper.querySelectorAll(".carousel-slide");
+        const offset = this.slideWidth;
 
         const style = window.getComputedStyle(this.wrapper);
-        const matrix = new WebKitCSSMatrix(style.transform);
+        let matrix = new WebKitCSSMatrix(style.transform);
 
-        if (this.activeSlideCount < maxCount) {
-            this.activeSlideCount = count + 1;
+        const lastSlide = this.wrapper.querySelector(".slide-last");
+        const lastSlideNextSibling = lastSlide.nextElementSibling;
+
+        if (lastSlideNextSibling) {
+            this.wrapper.style.transform = `translateX(${
+                matrix.m41 - offset
+            }px)`;
+        } else {
+            const firstSlide = slides[0];
+            const parent = slides[0].parentNode;
+
+            parent.appendChild(firstSlide);
+
+            parent.style.transitionDuration = "0s";
+            this.wrapper.style.transform = `translateX(${
+                matrix.m41 + offset
+            }px)`;
+
+            matrix = new WebKitCSSMatrix(style.transform);
+            parent.style.transitionDuration = null;
             this.wrapper.style.transform = `translateX(${
                 matrix.m41 - offset
             }px)`;
         }
+        this.updateActiveSlides("next");
     }
 
     setupNavigation() {
@@ -62,6 +100,9 @@ export class Carousel {
 
     setupCarousel() {
         const container = this.container;
+        const slides = this.slides;
+        const slidesPerView = this.options.slidesPerView;
+
         container.classList.add("carousel");
 
         const carouselWrapper = document.createElement("div");
@@ -73,6 +114,9 @@ export class Carousel {
         });
         container.appendChild(carouselWrapper);
 
+        slides[0].classList.add("slide-first");
+        slides[slidesPerView - 1].classList.add("slide-last");
+
         this.setupSlidesWidth();
     }
     setupSlidesWidth() {
@@ -83,7 +127,24 @@ export class Carousel {
             this.slideWidth =
                 container.offsetWidth / this.options.slidesPerView;
         });
+    }
+    updateActiveSlides(direction = "next") {
+        const wrapper = this.wrapper;
+        const firstSlide = wrapper.querySelector(".slide-first");
+        const lastSlide = wrapper.querySelector(".slide-last");
 
-        // this.activeSlideCount = this.totalSlides / this.options.slidesPerView;
+        if (direction === "next") {
+            firstSlide.classList.remove("slide-first");
+            firstSlide.nextElementSibling?.classList.add("slide-first");
+
+            lastSlide.classList.remove("slide-last");
+            lastSlide.nextElementSibling?.classList.add("slide-last");
+        } else {
+            firstSlide.classList.remove("slide-first");
+            firstSlide.previousElementSibling?.classList.add("slide-first");
+
+            lastSlide.classList.remove("slide-last");
+            lastSlide.previousElementSibling?.classList.add("slide-last");
+        }
     }
 }
