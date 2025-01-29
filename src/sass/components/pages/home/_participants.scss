@@ -1,6 +1,31 @@
 .participants {
     margin: 200px 0 140px 0;
+    .container {
+        position: relative;
+    }
 }
 .participants__slider__wrapper {
     margin-top: 60px;
+}
+.participants__slider {
+}
+.participants__slider__nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+}
+.participants__slider__nav__counter {
+    font-size: 16px;
+    line-height: 19px;
+    margin: 0 14px;
+    i {
+        opacity: 0.6;
+        &.participants__slider__nav__counter__current {
+            opacity: 1;
+        }
+    }
 }

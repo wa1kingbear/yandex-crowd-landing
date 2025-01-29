@@ -9,6 +9,10 @@ export const participants = () => {
             prev: ".participants__slider__nav .prev",
             next: ".participants__slider__nav .next",
         },
+        counter: {
+            current: ".participants__slider__nav__counter__current",
+            total: ".participants__slider__nav__counter__total",
+        },
         responsive: [
             { breakpoint: 1024, slidesToShow: 2 },
             { breakpoint: 768, slidesToShow: 1 },
