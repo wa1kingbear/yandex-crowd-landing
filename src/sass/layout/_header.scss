@@ -1,3 +1,5 @@
+@use "../utils/mixins" as *;
+
 header {
     width: 100%;
     padding: 26px 0;
@@ -5,10 +7,16 @@ header {
     top: 0;
     left: 0;
     z-index: 5;
+    @include media-max-width(650) {
+        padding: 18px 0;
+    }
     .logo {
         display: block;
         width: 245px;
         transition: opacity 0.2s ease;
+        @include media-max-width(650) {
+            width: 213px;
+        }
         @media (hover: hover) {
             &:hover {
                 opacity: 0.7;

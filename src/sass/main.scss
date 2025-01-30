@@ -5,7 +5,10 @@
 @use "./components/components";
 @use "./pages/pages";
 
+@use "./utils/mixins" as *;
+
 body {
+    min-width: 375px;
     background-color: var(--white);
     font-family: var(--font2);
     color: var(--black);
@@ -14,4 +17,14 @@ body {
     width: 1222px;
     margin: 0 auto;
     box-sizing: border-box;
+    @include media-max-width(1279) {
+        width: 980px;
+    }
+    @include media-max-width(1023) {
+        width: 89%;
+    }
+    @include media-max-width(650) {
+        min-width: 336px;
+        overflow: hidden;
+    }
 }

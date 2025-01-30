@@ -1,31 +1,77 @@
+@use "../../../utils/mixins" as *;
+
 .about {
     margin-top: 80px;
+    @include media-max-width(650) {
+        margin-top: 50px;
+    }
 }
 .about__heading {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    .container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        @include media-max-width(1023) {
+            flex-direction: column;
+        }
+    }
 }
 .about__heading__title {
+    display: inline;
     flex: 1;
     margin-right: 64px;
+    @include media-max-width(1023) {
+        margin-right: 0;
+    }
+    &.mobile {
+        @include media-min-width(1024) {
+            display: none;
+        }
+    }
+}
+.about__heading__title__dynamic {
+    @include media-max-width(1023) {
+        display: none;
+    }
 }
 .about__heading__image {
     width: 394px;
+    @include media-max-width(1023) {
+        width: 100%;
+        max-width: 394px;
+        margin: 24px auto;
+    }
     img {
         display: block;
         width: 100%;
     }
 }
 .about__content {
-    display: flex;
-    flex-direction: row;
     margin-top: 36px;
+    @include media-max-width(1023) {
+        margin-top: 30px;
+    }
+    .container {
+        display: flex;
+        flex-direction: row;
+        @include media-max-width(1023) {
+            width: 100%;
+            flex-direction: column;
+        }
+    }
 }
 .about__content__image {
     width: 530px;
     margin: 0 20px 0 -25px;
     position: relative;
+    @include media-max-width(1279) {
+        width: 390px;
+    }
+    @include media-max-width(1023) {
+        width: 100%;
+        max-width: 530px;
+        margin: 0 auto;
+    }
     &:before {
         display: block;
         height: 100%;
@@ -49,9 +95,16 @@
 .about__content__description {
     margin-top: 30px;
     flex: 1;
+    @include media-max-width(1023) {
+        width: 89%;
+        margin: 24px auto 0;
+    }
 }
 .about__content__description__characteristics {
     margin-top: 60px;
+    @include media-max-width(1023) {
+        margin-top: 44px;
+    }
 }
 .about__content__description__characteristics__item {
     display: flex;
@@ -59,6 +112,16 @@
     line-height: 24px;
     color: var(--black);
     flex-direction: row;
+    @include media-max-width(1023) {
+        flex-direction: column;
+        padding: 16px 0;
+        &:nth-child(1) {
+            padding-top: 0;
+        }
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
     &:nth-child(1) {
         div {
             padding-top: 0;
@@ -73,12 +136,16 @@
         border-top: 2px solid var(--light-grey);
     }
     div {
-        padding: 16px 0;
         box-sizing: border-box;
+        @include media-min-width(1024) {
+            padding: 16px 0;
+        }
         &:nth-child(1) {
-            width: 305px;
-            padding-right: 16px;
-            border-right: 2px solid var(--light-grey);
+            @include media-min-width(1024) {
+                width: 305px;
+                padding-right: 16px;
+                border-right: 2px solid var(--light-grey);
+            }
             span {
                 opacity: 0.7;
             }
@@ -86,7 +153,12 @@
         &:nth-child(2) {
             font-weight: 600;
             flex: 1;
-            padding-left: 16px;
+            @include media-min-width(1024) {
+                padding-left: 16px;
+            }
+            @include media-max-width(1023) {
+                margin-top: 12px;
+            }
             em {
                 text-decoration: line-through;
                 text-decoration-color: var(--red);
@@ -100,6 +172,11 @@
     line-height: 24px;
     color: var(--blue);
     margin-top: 48px;
+    @include media-max-width(1023) {
+        font-size: 18px;
+        line-height: 22px;
+        margin-top: 40px;
+    }
 }
 
 .about-title {
@@ -108,6 +185,14 @@
     line-height: 49px;
     color: var(--black);
     text-transform: uppercase;
+    @include media-max-width(1279) {
+        font-size: 32px;
+        line-height: 40px;
+    }
+    @include media-max-width(1023) {
+        font-size: 28px;
+        line-height: 38px;
+    }
     em {
         font-weight: 700;
         color: var(--red);

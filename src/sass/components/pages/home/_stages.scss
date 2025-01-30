@@ -1,6 +1,14 @@
+@use "../../../utils/mixins" as *;
+
 .stages {
     margin-top: 200px;
     overflow: hidden;
+    @include media-max-width(1279) {
+        margin-top: 150px;
+    }
+    @include media-max-width(1023) {
+        margin-top: 120px;
+    }
     .container {
         position: relative;
     }
@@ -25,23 +33,69 @@
     font-size: 20px;
     line-height: 24px;
     color: var(--blue);
+    @include media-max-width(1023) {
+        max-width: none;
+        width: 100%;
+        font-size: 18px;
+        line-height: 22px;
+        flex: unset;
+        margin: 12px 0 0 0;
+    }
 }
 .stages__content {
     margin-top: 54px;
+    @include media-max-width(1279) {
+        margin-top: 45px;
+    }
+    @include media-max-width(1023) {
+        margin-top: 148px;
+        position: relative;
+    }
 }
 .stages__slider {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+}
+.stages__slider__container {
+    @include media-min-width(1024) {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
 }
 .stages__slider__slide {
+    @include media-max-width(1023) {
+        &.carousel-slide {
+            height: auto;
+        }
+    }
+    &:not(.col-2) {
+        .stages__card {
+            @include media-max-width(1023) {
+                min-height: 100%;
+            }
+        }
+    }
     &.col-2 {
         display: flex;
         flex-direction: row;
         gap: 20px;
+        @include media-max-width(1279) {
+            gap: 10px;
+        }
+        @include media-max-width(1023) {
+            flex-direction: column;
+            gap: 0;
+        }
         .stages__card {
             flex: 1;
+            @include media-min-width(1024) {
+                min-height: 100%;
+            }
+            @include media-max-width(1023) {
+                &:nth-child(1) {
+                    padding-bottom: 28px;
+                }
+            }
         }
     }
     &:nth-child(1) {
@@ -57,18 +111,60 @@
         grid-column: span 2;
         .stages__card__text {
             max-width: 445px;
+            @include media-max-width(1279) {
+                max-width: 395px;
+            }
         }
     }
     .stages__card {
-        min-height: 100%;
+        @include media-min-width(1024) {
+            min-height: 100%;
+        }
+        @include media-max-width(1023) {
+            padding-left: 20px;
+            padding-right: 24px;
+            padding-bottom: 34px;
+            &:nth-child(1) {
+                padding-top: 64px;
+            }
+        }
     }
+}
+.stages__slider__nav {
+    display: none;
+    flex-direction: row;
+    margin-top: 28px;
+    @include media-max-width(1023) {
+        display: flex;
+        justify-content: center;
+    }
+}
+.stages__slider__nav__pagination {
+    margin: 0 16px;
 }
 .stages__image {
     width: 376px;
+    pointer-events: none;
     position: absolute;
     right: -62px;
     bottom: 0;
     z-index: 3;
+    @include media-max-width(1279) {
+        width: 280px;
+    }
+    @include media-max-width(1023) {
+        width: 100%;
+        width: 335px;
+        top: -130px;
+        right: 0;
+        bottom: unset;
+    }
+    @include media-max-width(650) {
+        margin: auto;
+        top: -120px;
+        left: 0;
+        bottom: unset;
+    }
     img {
         display: block;
         width: 100%;

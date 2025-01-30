@@ -1,3 +1,5 @@
+@use "../../utils/mixins" as *;
+
 .participants-card {
     display: flex;
     flex-direction: column;
@@ -12,6 +14,14 @@
     background-repeat: no-repeat;
     border-radius: 50%;
     overflow: hidden;
+    @include media-max-width(1279) {
+        height: 250px;
+        width: 250px;
+    }
+    @include media-max-width(650) {
+        height: 244px;
+        width: 244px;
+    }
 }
 .participants-card__about {
     text-align: center;
@@ -27,6 +37,11 @@
     line-height: 24px;
     opacity: 0.6;
     margin-top: 6px;
+    @include media-max-width(650) {
+        font-size: 20px;
+        line-height: 24px;
+        margin-top: 8px;
+    }
 }
 .participants-card__button {
     display: flex;

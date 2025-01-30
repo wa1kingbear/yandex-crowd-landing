@@ -1,5 +1,8 @@
+@use "../../../utils/mixins" as *;
+
 .running-line {
     display: flex;
+    height: 60px;
     background-color: var(--red);
     font-weight: 400;
     font-family: var(--font1);
@@ -10,6 +13,11 @@
     align-items: center;
     overflow: hidden;
     position: relative;
+    @include media-max-width(650) {
+        height: 38px;
+        font-size: 16px;
+        line-height: 38px;
+    }
     span {
         white-space: nowrap;
         padding-right: 30px;

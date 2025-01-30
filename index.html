@@ -35,12 +35,18 @@
                         </p>
                     </div>
                     <div class="heading__buttons">
-                        <a href="#" class="button"
-                            >Поддержать шахматную мысль</a
+                        <button
+                            data-anchor="about"
+                            class="button anchor-button"
                         >
-                        <a href="#" class="button outline"
-                            >Подробнее о турнире</a
+                            Поддержать шахматную мысль
+                        </button>
+                        <button
+                            data-anchor="match"
+                            class="button outline anchor-button"
                         >
+                            Подробнее о турнире
+                        </button>
                     </div>
                 </div>
             </div>
@@ -76,25 +82,29 @@
                     alt="heading-chess"
                 />
             </div>
-        </section>
-        <div class="running-line">
-            <div class="running-line__text">
-                <span>Дело помощи утопающим — дело рук самих утопающих!</span>
-                <span
-                    >Шахматы двигают вперед не только культуру, но и
-                    экономику!</span
-                >
-                <span>Лед тронулся, господа присяжные заседатели!</span>
+            <div class="running-line">
+                <div class="running-line__text">
+                    <span
+                        >Дело помощи утопающим — дело рук самих утопающих!</span
+                    >
+                    <span
+                        >Шахматы двигают вперед не только культуру, но и
+                        экономику!</span
+                    >
+                    <span>Лед тронулся, господа присяжные заседатели!</span>
+                </div>
             </div>
-        </div>
-        <section class="about">
-            <div class="container">
-                <div class="about__heading">
+        </section>
+        <section class="about" id="about">
+            <div class="about__heading">
+                <div class="container">
                     <div class="about__heading__title about-title">
                         <p>
                             Чтобы поддержать Международный васюкинский турнир
-                            посетите лекцию на тему:
-                            <em>«Плодотворная дебютная идея»</em>
+                            <span class="about__heading__title__dynamic">
+                                посетите лекцию на тему:
+                                <em>«Плодотворная дебютная идея»</em></span
+                            >
                         </p>
                     </div>
                     <div class="about__heading__image">
@@ -103,51 +113,19 @@
                             alt="Международный васюкинский турнир"
                         />
                     </div>
+                    <div class="about__heading__title about-title mobile">
+                        <p></p>
+                    </div>
                 </div>
-                <div class="about__content">
+            </div>
+            <div class="about__content">
+                <div class="container">
                     <div class="about__content__image">
                         <img
                             src="assets/images/about-image.png"
                             alt="about-image"
                         />
                     </div>
-                    <!-- <div class="about__content__image">
-                        <img
-                            class="about__content__flash-large"
-                            src="assets/images/about-flash-large.png"
-                            alt="about-flash-large"
-                        />
-                        <img
-                            class="about__content__image__banknote"
-                            src="assets/images/about-banknote.png"
-                            alt="about-banknote"
-                        />
-                        <img
-                            class="about__content__image__player"
-                            src="assets/images/about-chess-player.png"
-                            alt="about-chess-player"
-                        />
-                        <img
-                            class="about__content__image__chess"
-                            src="assets/images/about-chess.png"
-                            alt="about-chess"
-                        />
-                        <img
-                            class="about__content__image__flash-small"
-                            src="assets/images/about-flash-small.png"
-                            alt="about-flash-small"
-                        />
-                        <img
-                            class="about__content__image__arm"
-                            src="assets/images/about-arm.png"
-                            alt="about-arm"
-                        />
-                        <img
-                            class="about__content__image__bg"
-                            src="assets/images/about-bg.png"
-                            alt="about-bg"
-                        />
-                    </div> -->
                     <div class="about__content__description">
                         <div
                             class="about__content__description__title about-title"
@@ -163,6 +141,7 @@
                         </div>
                         <div
                             class="about__content__description__characteristics"
+                            id="match"
                         >
                             <div
                                 class="about__content__description__characteristics__item"
@@ -244,92 +223,130 @@
                 </div>
                 <div class="stages__content">
                     <div class="stages__slider">
-                        <div class="stages__slider__slide col-2">
-                            <div class="stages__card">
-                                <div class="stages__card__num">1</div>
-                                <div class="stages__card__text">
-                                    <span
-                                        >Строительство железнодорожной
-                                        магистрали Москва-Васюки</span
-                                    >
+                        <div class="stages__slider__container">
+                            <div
+                                class="stages__slider__slide col-2 carousel-slide"
+                            >
+                                <div class="stages__card">
+                                    <div class="stages__card__num">1</div>
+                                    <div class="stages__card__text">
+                                        <span
+                                            >Строительство железнодорожной
+                                            магистрали Москва-Васюки</span
+                                        >
+                                    </div>
+                                </div>
+                                <div class="stages__card">
+                                    <div class="stages__card__num">2</div>
+                                    <div class="stages__card__text">
+                                        <span
+                                            >Открытие фешенебельной гостиницы
+                                            «Проходная пешка» и других
+                                            небоскрёбов</span
+                                        >
+                                    </div>
                                 </div>
                             </div>
-                            <div class="stages__card">
-                                <div class="stages__card__num">2</div>
-                                <div class="stages__card__text">
-                                    <span
-                                        >Открытие фешенебельной гостиницы
-                                        «Проходная пешка» и других
-                                        небоскрёбов</span
-                                    >
+                            <div class="stages__slider__slide carousel-slide">
+                                <div class="stages__card">
+                                    <div class="stages__card__num">3</div>
+                                    <div class="stages__card__text">
+                                        <span
+                                            >Поднятие сельского хозяйства
+                                            в радиусе на тысячу километров:
+                                            производство овощей, фруктов, икры,
+                                            шоколадных конфет</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="stages__slider__slide col-2 carousel-slide"
+                            >
+                                <div class="stages__card">
+                                    <div class="stages__card__num">4</div>
+                                    <div class="stages__card__text">
+                                        <span
+                                            >Строительство дворца
+                                            для турнира</span
+                                        >
+                                    </div>
+                                </div>
+                                <div class="stages__card">
+                                    <div class="stages__card__num">5</div>
+                                    <div class="stages__card__text">
+                                        <span
+                                            >Размещение гаражей для гостевого
+                                            автотранспорта</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stages__slider__slide carousel-slide">
+                                <div class="stages__card">
+                                    <div class="stages__card__num">6</div>
+                                    <div class="stages__card__text">
+                                        <span
+                                            >Постройка сверхмощной радиостанции
+                                            для передачи всему миру сенсационных
+                                            результатов</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stages__slider__slide carousel-slide">
+                                <div class="stages__card">
+                                    <div class="stages__card__num">7</div>
+                                    <div class="stages__card__text">
+                                        <span
+                                            >Создание аэропорта «Большие Васюки»
+                                            с регулярным отправлением почтовых
+                                            самолётов и дирижаблей во все концы
+                                            света, включая Лос-Анжелос
+                                            и Мельбурн</span
+                                        >
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="stages__slider__slide">
-                            <div class="stages__card">
-                                <div class="stages__card__num">3</div>
-                                <div class="stages__card__text">
-                                    <span
-                                        >Поднятие сельского хозяйства в радиусе
-                                        на тысячу километров: производство
-                                        овощей, фруктов, икры, шоколадных
-                                        конфет</span
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                        <div class="stages__slider__slide col-2">
-                            <div class="stages__card">
-                                <div class="stages__card__num">4</div>
-                                <div class="stages__card__text">
-                                    <span
-                                        >Строительство дворца для турнира</span
-                                    >
-                                </div>
-                            </div>
-                            <div class="stages__card">
-                                <div class="stages__card__num">5</div>
-                                <div class="stages__card__text">
-                                    <span
-                                        >Размещение гаражей для гостевого
-                                        автотранспорта</span
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                        <div class="stages__slider__slide">
-                            <div class="stages__card">
-                                <div class="stages__card__num">6</div>
-                                <div class="stages__card__text">
-                                    <span
-                                        >Постройка сверхмощной радиостанции
-                                        для передачи всему миру сенсационных
-                                        результатов</span
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                        <div class="stages__slider__slide">
-                            <div class="stages__card">
-                                <div class="stages__card__num">7</div>
-                                <div class="stages__card__text">
-                                    <span
-                                        >Создание аэропорта «Большие Васюки»
-                                        с регулярным отправлением почтовых
-                                        самолётов и дирижаблей во все концы
-                                        света, включая Лос-Анжелос
-                                        и Мельбурн</span
-                                    >
-                                </div>
-                            </div>
+                        <div class="stages__slider__nav">
+                            <button class="arrow-button prev">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    xml:space="preserve"
+                                    viewBox="0 0 12 20"
+                                >
+                                    <path
+                                        fill="none"
+                                        stroke-linecap="square"
+                                        stroke-width="2"
+                                        d="M1.5 1.5 9.9 10l-8.5 8.5"
+                                    />
+                                </svg>
+                            </button>
+                            <div class="stages__slider__nav__pagination"></div>
+                            <button class="arrow-button next">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    xml:space="preserve"
+                                    viewBox="0 0 12 20"
+                                >
+                                    <path
+                                        fill="none"
+                                        stroke-linecap="square"
+                                        stroke-width="2"
+                                        d="M1.5 1.5 9.9 10l-8.5 8.5"
+                                    />
+                                </svg>
+                            </button>
                         </div>
                     </div>
-                </div>
-                <div class="stages__image">
-                    <img
-                        src="assets/images/stages-airplane.png"
-                        alt="stages-airplane"
-                    />
+                    <div class="stages__image">
+                        <img
+                            src="assets/images/stages-airplane.png"
+                            alt="stages-airplane"
+                        />
+                    </div>
                 </div>
             </div>
         </section>

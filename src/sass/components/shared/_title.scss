@@ -1,6 +1,12 @@
+@use "../../utils/mixins" as *;
+
 .title {
     font-family: var(--font1);
     font-size: 54px;
     line-height: 65px;
     text-transform: uppercase;
+    @include media-max-width(1023) {
+        font-size: 36px;
+        line-height: 40px;
+    }
 }

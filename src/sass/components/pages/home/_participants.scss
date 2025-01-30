@@ -1,13 +1,28 @@
+@use "../../../utils/mixins" as *;
+
 .participants {
     margin: 200px 0 140px 0;
+    @include media-max-width(1279) {
+        margin: 150px 0 120px 0;
+    }
+    @include media-max-width(650) {
+        margin: 120px 0 100px 0;
+    }
     .container {
         position: relative;
     }
 }
 .participants__slider__wrapper {
     margin-top: 60px;
+    @include media-max-width(650) {
+        margin-top: 40px;
+    }
 }
 .participants__slider {
+    @include media-max-width(1023) {
+        padding-bottom: 76px;
+        position: relative;
+    }
 }
 .participants__slider__nav {
     display: flex;
@@ -17,6 +32,12 @@
     top: 10px;
     right: 0;
     z-index: 1;
+    @include media-max-width(1023) {
+        justify-content: center;
+        top: unset;
+        left: 0;
+        bottom: 0;
+    }
 }
 .participants__slider__nav__counter {
     font-size: 16px;

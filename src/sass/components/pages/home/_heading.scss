@@ -1,15 +1,38 @@
+@use "../../../utils/mixins" as *;
+
 .heading {
-    height: 700px;
+    height: 760px;
     background-color: var(--brown-light);
+    overflow: hidden;
     position: relative;
+    @include media-max-width(650) {
+        height: auto;
+        height: 100vh;
+        min-height: 700px;
+    }
     .container {
         padding: 124px 0;
         position: relative;
         z-index: 10;
+        @include media-max-width(650) {
+            padding: 90px 0;
+        }
+    }
+    .running-line {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 5;
     }
 }
 .heading__content {
     max-width: 542px;
+    @include media-max-width(1279) {
+        max-width: none;
+    }
+    @include media-max-width(650) {
+        width: 100%;
+    }
 }
 .heading__title {
     font-weight: 400;
@@ -17,6 +40,19 @@
     font-size: 60px;
     line-height: 66px;
     text-transform: uppercase;
+    @include media-max-width(1279) {
+        max-width: 412px;
+        font-size: 42px;
+        line-height: 48px;
+    }
+    @include media-max-width(1023) {
+        margin: auto;
+    }
+    @include media-max-width(650) {
+        max-width: none;
+        font-size: 36px;
+        line-height: 40px;
+    }
     span {
         display: block;
         &:nth-child(2) {
@@ -30,22 +66,49 @@
     line-height: 23px;
     text-align: center;
     margin-top: 24px;
+    @include media-max-width(1270) {
+        max-width: 412px;
+    }
+    @include media-max-width(1023) {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    @include media-max-width(650) {
+        max-width: none;
+        text-align: left;
+    }
 }
 .heading__buttons {
     display: flex;
     justify-content: space-between;
     gap: 16px;
     margin-top: 24px;
+    @include media-max-width(1279) {
+        max-width: 530px;
+    }
+    @include media-max-width(1023) {
+        max-width: 350px;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 14px;
+        margin-top: 32px;
+    }
 }
 .heading__background {
-    height: 100%;
     width: 100%;
     background-color: var(--brown-light);
     overflow: hidden;
     position: absolute;
     top: 0;
     left: 0;
+    bottom: 60px;
     z-index: 1;
+    @include media-max-width(650) {
+        bottom: 38px;
+    }
     &:before {
         height: 100%;
         width: 100%;
@@ -68,6 +131,17 @@
     top: -45px;
     right: 0;
     z-index: 1;
+    @include media-max-width(1023) {
+        width: 500px;
+        margin: 0 auto;
+        top: unset;
+        left: -16px;
+        right: 0;
+        bottom: 68px;
+    }
+    @include media-max-width(650) {
+        width: 297px;
+    }
 }
 .heading__background__city {
     display: block;
@@ -76,6 +150,12 @@
     left: 0;
     bottom: 0;
     z-index: 2;
+    @include media-max-width(650) {
+        width: 760px;
+        left: unset;
+        right: -40px;
+        bottom: -5px;
+    }
 }
 .heading__background__chess-1 {
     display: block;
@@ -84,6 +164,24 @@
     top: 270px;
     right: 506px;
     z-index: 1;
+    @include media-max-width(1279) {
+        top: 320px;
+        right: 385px;
+    }
+    @include media-max-width(1023) {
+        width: 65px;
+        top: unset;
+        right: 260px;
+        bottom: 80px;
+    }
+    @include media-max-width(650) {
+        width: 65px;
+        transform: rotate(2deg);
+        top: unset;
+        left: unset;
+        right: 242px;
+        bottom: 100px;
+    }
 }
 .heading__background__chess-2 {
     display: block;
@@ -92,6 +190,13 @@
     top: 165px;
     right: 159px;
     z-index: 1;
+    @include media-max-width(1023) {
+        width: 62px;
+        transform: rotate(5deg);
+        top: unset;
+        right: 83px;
+        bottom: 160px;
+    }
 }
 .heading__background__chess-3 {
     display: block;
@@ -100,6 +205,13 @@
     right: 334px;
     bottom: -9px;
     z-index: 5;
+    @include media-max-width(1023) {
+        width: 103px;
+        margin: 0 auto;
+        left: 10px;
+        right: 0;
+        bottom: 0px;
+    }
 }
 .heading__background__chess-4 {
     display: block;
@@ -108,4 +220,7 @@
     right: 45px;
     bottom: 20px;
     z-index: 5;
+    @include media-max-width(1023) {
+        display: none;
+    }
 }

@@ -1,3 +1,5 @@
+@use "../../utils/mixins" as *;
+
 .stages__card {
     display: flex;
     background-color: var(--brown-light);
@@ -6,6 +8,9 @@
     padding: 20px 21px 20px;
     box-sizing: border-box;
     position: relative;
+    @include media-max-width(650) {
+        padding: 0;
+    }
     &:before {
         height: 100%;
         width: 100%;
@@ -40,4 +45,8 @@
     font-size: 20px;
     line-height: 24px;
     flex: 1;
+    @include media-max-width(650) {
+        font-size: 18px;
+        line-height: 22px;
+    }
 }

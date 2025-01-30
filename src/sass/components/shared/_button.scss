@@ -1,3 +1,5 @@
+@use "../../utils/mixins" as *;
+
 .button {
     display: flex;
     min-height: 72px;
@@ -11,12 +13,21 @@
     align-items: center;
     justify-content: center;
     padding: 0 50px;
+    border: none;
     border-radius: 66px;
     box-sizing: border-box;
     transition:
         background-color 0.2s ease,
         color 0.2s ease,
         border-color 0.2s ease;
+    @include media-max-width(1279) {
+        min-height: 60px;
+        padding: 0 30px;
+    }
+    @include media-max-width(650) {
+        min-height: 47px;
+        padding: 0 20px;
+    }
     &:not(.blue) {
         &:not(.outline) {
             @media (hover: hover) {
@@ -35,6 +46,10 @@
             background-color: transparent;
             color: var(--button-black);
             border: 2px solid var(--button-black);
+            @include media-max-width(1023) {
+                background-color: rgba(255, 255, 255, 0.9);
+                border: none;
+            }
             @media (hover: hover) {
                 &:hover {
                     background-color: var(--button-black);
